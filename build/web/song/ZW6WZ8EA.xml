@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Song xmlns="http://yourplaylist.tk/Schema">
+    <Title>Cá Vàng Bơi</Title>
+    <Artist>Nguyệt Hằng</Artist>
+    <AlbumArt>http://static.mp3.zdn.vn/skins/mp3_mobile/images/avatar_default_82x82.jpg</AlbumArt>
+    <Source>{&quot;data&quot;:[{&quot;type&quot;:&quot;audio&quot;,&quot;title&quot;:&quot;C\u00e1 V\u00e0ng B\u01a1i&quot;,&quot;performer&quot;:&quot;Nguy\u1ec7t H\u1eb1ng&quot;,&quot;source&quot;:&quot;http:\/\/m.mp3.zing.vn\/xml\/song-load\/MjAxMiUyRjA5JTJGMTYlMkYxJTJGNiUyRjE2N2E0NDhhOTEzZGJhODljOTJmYjY2NjMwNmMyMjc5Lm1wMyU3QzI=&quot;,&quot;hq&quot;:&quot;require vip&quot;}]}</Source>
+    <Lyrics>hai vây xinh xinh cá vàng bơi trong bể .nước ngoi lên lăn xuống cá vàng múa tung .tăng hai vây sao mà bơi nhanh thế cá vàng thấy bọ gậy nên đuổi theo rất nhanh .cá vàng bắt bọ gậy cho nước thêm sạch trong .</Lyrics>
+</Song>

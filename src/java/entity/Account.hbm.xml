@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 03/02/2015 1:18:42 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="entity.Account" table="Account" schema="dbo" catalog="MyPlaylist">
+        <id name="id" type="int">
+            <column name="Id" />
+            <generator class="assigned" />
+        </id>
+        <property name="username" type="string">
+            <column name="Username" length="50" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="Email" length="50" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="Password" length="50" not-null="true" />
+        </property>
+        <property name="role" type="int">
+            <column name="Role" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
