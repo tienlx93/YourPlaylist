@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Song xmlns="http://yourplaylist.tk/Schema">
+    <Title>Twinkle Twinkle Little Star</Title>
+    <Artist>Olivia Newton John</Artist>
+    <AlbumArt>http://image.mp3.zdn.vn/thumb/165_165/avatars/8/8/88e1cedec9160787392703883ab73b4d_1336319266.jpg</AlbumArt>
+    <Source>{&quot;data&quot;:[{&quot;type&quot;:&quot;audio&quot;,&quot;title&quot;:&quot;Twinkle Twinkle Little Star&quot;,&quot;performer&quot;:&quot;Olivia Newton John&quot;,&quot;source&quot;:&quot;http:\/\/m.mp3.zing.vn\/xml\/song-load\/MjAxMSUyRjA5JTJGMjQlMkYwJTJGOSUyRjA5YjM3NmRmOTRjOWVmN2NkZDM3NTI2Y2YzMjkyYzBkLm1wMyU3QzI=&quot;,&quot;hq&quot;:&quot;require vip&quot;}]}</Source>
+    <Lyrics>&lt;br&gt; (Traditional) &lt;br&gt; &lt;br&gt; Twinkle twinkle little star&lt;br&gt; How I wonder what you are&lt;br&gt; Up above the world so high&lt;br&gt; Like a diamond in the sky&lt;br&gt; Twinkle twinkle little star&lt;br&gt; How I wonder what you are&lt;br&gt;</Lyrics>
+</Song>

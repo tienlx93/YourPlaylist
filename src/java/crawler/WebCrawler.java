@@ -25,6 +25,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import util.AccentRemover;
 
 /**
  *
@@ -51,7 +52,7 @@ public class WebCrawler {
         }
     }
 
-    public void processPage(String URL) throws SQLException, IOException {
+    public void processPage(String URL) throws IOException {
 
         Document doc = Jsoup.connect(URL).get();
 
@@ -63,15 +64,23 @@ public class WebCrawler {
             Element element = type.get(i);
             subUrl = element.attr("href");
             name = element.text();
-            if (subUrl.contains("Electronic")) {
+            if (subUrl.contains("top")) {
                 System.out.println(subUrl + "-" + name);
-                processSongList(URL + subUrl);
+                try {
+                    processSongList(URL + subUrl);
+                } catch (SQLException ex) {
+                    Logger.getLogger(WebCrawler.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(WebCrawler.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IndexOutOfBoundsException ex) {
+                    Logger.getLogger(WebCrawler.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
 
     }
 
-    public void processSongList(String URL) throws SQLException, IOException {
+    public void processSongList(String URL) throws SQLException, IOException, IndexOutOfBoundsException {
 
         Document doc = Jsoup.connect(URL).get();
 
@@ -81,8 +90,8 @@ public class WebCrawler {
         //TODO
         String category = categoryElm.html();
         String url;
-        String title;
-        String artist;
+        String title, titleSearch;
+        String artist, artistSearch;
         String id;
         HashMap map;
 
@@ -97,30 +106,42 @@ public class WebCrawler {
             System.out.println("Crawl: " + url);
 
             title = element.select("h3").get(0).text();
+            titleSearch = AccentRemover.removeAccent(title);
             artist = element.select("h4").get(0).text();
+            artistSearch = AccentRemover.removeAccent(artist);
 
             dao = new SongDAO();
-            
+
             Song found = dao.get(id);
             if (found == null) {
-                songEntity = new Song(id, title, artist, 0, 0, category);
-                dao.save(songEntity);
+                try {
+                    songEntity = new Song(id, title, titleSearch, artist, artistSearch, 0, category);
+                    map = processSong(getBaseUrl() + url); //throw exception
 
-                map = processSong(getBaseUrl() + url);
-                songJaxb = new jaxb.song.Song();
+                    dao.save(songEntity);
+                    songJaxb = new jaxb.song.Song();
 
-                songJaxb.setAlbumArt(map.get("AlbumArt").toString());
-                songJaxb.setLyrics(map.get("Lyrics").toString());
-                songJaxb.setSource(map.get("Source").toString());
-                songJaxb.setTitle(title);
-                songJaxb.setArtist(artist);
+                    songJaxb.setAlbumArt(map.get("AlbumArt").toString());
+                    songJaxb.setLyrics(map.get("Lyrics").toString());
+                    songJaxb.setSource(map.get("Source").toString());
+                    songJaxb.setTitle(title);
+                    songJaxb.setArtist(artist);
 
-                marshallXML(getBasePath() + "song/" + id + ".xml", songJaxb);
+                    marshallXML(getBasePath() + "song/" + id + ".xml", songJaxb);
+                } catch (org.hibernate.exception.DataException ex) {
+                    Logger.getLogger(WebCrawler.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (SQLException ex) {
+                    Logger.getLogger(WebCrawler.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(WebCrawler.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IndexOutOfBoundsException ex) {
+                    Logger.getLogger(WebCrawler.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
     }
 
-    public HashMap<String, String> processSong(String URL) throws SQLException, IOException {
+    public HashMap<String, String> processSong(String URL) throws SQLException, IOException, IndexOutOfBoundsException {
 
         HashMap<String, String> map = new HashMap<String, String>();
 
@@ -197,7 +218,7 @@ public class WebCrawler {
 
         Song found = dao.get(id);
         if (found == null) {
-            songEntity = new Song(id, title, artist, 0, 0, category);
+            //songEntity = new Song(id, title, artist, 0, 0, category);
             //dao.save(songEntity);
 
             songJaxb = new jaxb.song.Song();

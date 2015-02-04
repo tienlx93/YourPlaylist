@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Song xmlns="http://yourplaylist.tk/Schema">
+    <Title>Over The Rainbow</Title>
+    <Artist>Susan Wong</Artist>
+    <AlbumArt>http://image.mp3.zdn.vn/thumb/165_165/avatars/8/8/88174438b948067c60d7ef7a585017f5_1332584110.jpg</AlbumArt>
+    <Source>{&quot;data&quot;:[{&quot;type&quot;:&quot;audio&quot;,&quot;title&quot;:&quot;Over The Rainbow&quot;,&quot;performer&quot;:&quot;Susan Wong&quot;,&quot;source&quot;:&quot;http:\/\/m.mp3.zing.vn\/xml\/song-load\/MjAxMiUyRjAzJTJGMjglMkYxJTJGNyUyRjE3MTZkOGUyMmVhOTU3YTM5YWI3YjIzYjY2MGU2NWUxLm1wMyU3QzI=&quot;,&quot;hq&quot;:&quot;require vip&quot;}]}</Source>
+    <Lyrics>OVER THE RAINBOW&lt;br&gt; Somewhere over the rainbow way up high,&lt;br&gt; There’s a land that I heard of&lt;br&gt; Once in a lullaby.&lt;br&gt; Somewhere over the rainbow skies are blue,&lt;br&gt; And the dreams that you dare to dream&lt;br&gt; Really do come true.&lt;br&gt; Someday I’ll wish upon a star&lt;br&gt; And wake up where the clouds are far behind me.&lt;br&gt; Where troubles melt like lemon drops&lt;br&gt; Away above the chimney tops&lt;br&gt; That’s where you’ll find me.&lt;br&gt; Somewhere over the rainbow bluebirds fly.&lt;br&gt; Birds fly over the rainbow.&lt;br&gt; Why then, oh why can’t I?</Lyrics>
+</Song>

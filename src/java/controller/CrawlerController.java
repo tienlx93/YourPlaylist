@@ -37,18 +37,15 @@ public class CrawlerController extends HttpServlet {
         String path = request.getServletContext().getRealPath("/");
         String url = "http://m.mp3.zing.vn";
         String topSong = "http://m.mp3.zing.vn/bang-xep-hang/index.html";
-        
-        try {
-            
-            WebCrawler crawler = new WebCrawler();
-            crawler.setBasePath(path);
-            crawler.setBaseUrl(url);
-            
-            //crawler.testSaveArtist();
-            crawler.processPage(url);
-        } catch (SQLException ex) {
-            Logger.getLogger(CrawlerController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
+
+        WebCrawler crawler = new WebCrawler();
+        crawler.setBasePath(path);
+        crawler.setBaseUrl(url);
+
+        //crawler.testSaveArtist();
+        crawler.processPage(url);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

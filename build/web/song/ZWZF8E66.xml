@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Song xmlns="http://yourplaylist.tk/Schema">
+    <Title>Auld Lang Syne</Title>
+    <Artist>Keri Noble</Artist>
+    <AlbumArt>http://image.mp3.zdn.vn/thumb/165_165/avatars/5/d/5df8933f21e525eaf07c67bf3e490256_1331579430.jpg</AlbumArt>
+    <Source>{&quot;data&quot;:[{&quot;type&quot;:&quot;audio&quot;,&quot;title&quot;:&quot;Auld Lang Syne&quot;,&quot;performer&quot;:&quot;Keri Noble&quot;,&quot;source&quot;:&quot;http:\/\/m.mp3.zing.vn\/xml\/song-load\/MjAxMiUyRjAzJTJGMTIlMkY2JTJGYiUyRjZiNmM4OWQyNjg3NjlhMDgwOGI2MzlmZDcxOTk2MTMwLm1wMyU3QzI=&quot;,&quot;hq&quot;:&quot;require vip&quot;}]}</Source>
+    <Lyrics>Should auld acquaintance be forgot&lt;br&gt; And never brought to mind?&lt;br&gt; &lt;br&gt; Should auld acquaintance be forgot&lt;br&gt; And days of Auld Lang Syne.&lt;br&gt; &lt;br&gt; And days of Auld Lang Syne, my friend,&lt;br&gt; And days of Auld Lang Syne.&lt;br&gt; we'll drink a cup of kindness yet&lt;br&gt; To days of Auld Lang Syne.</Lyrics>
+</Song>
