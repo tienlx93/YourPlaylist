@@ -44,8 +44,8 @@ public class CrawlerController extends HttpServlet {
         crawler.setBaseUrl(url);
 
         //crawler.testSaveArtist();
-        crawler.processPage(url);
-
+        //crawler.processPage(url); //TESTED OK
+        //crawler.processArtistList();
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

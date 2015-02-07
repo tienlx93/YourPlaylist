@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Song xmlns="http://yourplaylist.tk/Schema">
+    <Title>Outro</Title>
+    <Artist>Small Fire</Artist>
+    <AlbumArt>http://static.mp3.zdn.vn/skins/mp3_mobile/images/avatar_default_82x82.jpg</AlbumArt>
+    <Source>{&quot;data&quot;:[{&quot;type&quot;:&quot;audio&quot;,&quot;title&quot;:&quot;Outro&quot;,&quot;performer&quot;:&quot;Small Fire&quot;,&quot;source&quot;:&quot;http:\/\/m.mp3.zing.vn\/xml\/song-load\/MjAxMSUyRjA5JTJGMjUlMkYyJTJGZiUyRjJmYWExZDBjNmFhNmVhNWE1ZmFkMTc2ZGQ0NjE5NmQ0Lm1wMyU3QzI=&quot;,&quot;hq&quot;:&quot;require vip&quot;}]}</Source>
+    <Lyrics></Lyrics>
+</Song>

@@ -36,31 +36,68 @@ public class AccountController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         response.setContentType("application/json;charset=UTF-8");
-        
+
         PrintWriter out = response.getWriter();
         String action = request.getParameter("action");
         HttpSession session = request.getSession();
         Gson gson = new Gson();
         Account userAcc;
 
-        if ("Login".equals(action)) {
-            String email = request.getParameter("txtEmail");
-            String passowrd = request.getParameter("txtPassword");
+        Account savedAcc = (Account) session.getAttribute("USER");
+        AccountDAO dao;
+
+        if (action.equals("Login")) {//TESTED OK
+            if (savedAcc != null) {
+                out.print(gson.toJson(savedAcc));
+                out.flush();
+                return;
+            }
+
+            String email = request.getParameter("email");
+            String password = request.getParameter("password");
             //String previousPage = userMainPage;
 
-            AccountDAO userDao = new AccountDAO();
-            userAcc = userDao.login(email, passowrd);
+            dao = new AccountDAO();
+            userAcc = dao.login(email, password);
             if (userAcc != null) {
                 session.setAttribute("USER", userAcc);
                 out.print(gson.toJson(userAcc));
                 out.flush();
 
             } else {
-                out.print(userAcc);
+                out.print(gson.toJson("Wrong user"));
                 out.flush();
                 //response.sendRedirect("/AccountController/login.jsp" + "?msg=error");
             }
+        } else if (action.equals("Register")) {//UNTESTED 
+
+
+            String email = request.getParameter("email");
+            String password = request.getParameter("password");
+            String username = request.getParameter("username");
+            //String previousPage = userMainPage;
+            dao = new AccountDAO();
+            Account existed = dao.get(email);
+
+            if (existed != null) {
+                out.print(gson.toJson("Duplicate"));
+                out.flush();
+
+            } else {
+                Account newAcc = new Account(email, username, password, 1);
+                if (dao.save(newAcc)) {
+                    session.setAttribute("USER", newAcc);
+                    out.print(gson.toJson(newAcc));
+                } else {
+                    out.print(gson.toJson("Error"));
+                }
+                out.flush();
+                //response.sendRedirect("/AccountController/login.jsp" + "?msg=error");
+            }
+        } else if (action.equals("Logout")) {//UNTESTED 
+            session.removeAttribute("USER");
         }
     }
 

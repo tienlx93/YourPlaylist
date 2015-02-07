@@ -17,6 +17,7 @@ public class SQLServerNativeDialect extends SQLServerDialect {
          super();
          registerColumnType(Types.VARCHAR, "nvarchar($l)");
          registerColumnType(Types.CLOB, "nvarchar(max)");
+         registerColumnType(Types.CLOB, "ntext");
      }
 
     @Override

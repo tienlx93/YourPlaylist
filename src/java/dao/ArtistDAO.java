@@ -4,10 +4,16 @@
  */
 package dao;
 
+import entity.Artist;
+
 /**
  *
  * @author tienl_000
  */
-public class ArtistDAO {
-    
+public class ArtistDAO extends BaseDAO<Artist, String> {
+
+    public ArtistDAO() {
+        super(Artist.class);
+    }
+
 }

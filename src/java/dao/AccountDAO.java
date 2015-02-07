@@ -13,15 +13,13 @@ import org.hibernate.SessionFactory;
  *
  * @author tienl_000
  */
-public class AccountDAO {
-    private Session session;
+public class AccountDAO extends BaseDAO<Account, String> {
 
     public AccountDAO() {
-        SessionFactory sf = util.HibernateUtil.getSessionFactory();
-        session = sf.getCurrentSession();
+        super(Account.class);
     }
 
-    public Account login(String email, String password) {
+    public Account login(String email, String password) { //TESTED OK
         try {
             session.getTransaction().begin();
             String sql = "from Account where email = ? and password = ?";
@@ -29,8 +27,7 @@ public class AccountDAO {
             query.setString(0, email);
             query.setString(1, password);
             entity.Account account = (Account) query.uniqueResult();
-            session.flush();
-            session.getTransaction().commit();
+
             if (account != null) {
                 return account;
             }

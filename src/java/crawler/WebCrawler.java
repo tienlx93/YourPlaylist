@@ -4,6 +4,7 @@
  */
 package crawler;
 
+import dao.ArtistDAO;
 import dao.SongDAO;
 import entity.Artist;
 import entity.Song;
@@ -39,7 +40,7 @@ public class WebCrawler {
 
     public static void main(String[] args) {
         WebCrawler crawler = new WebCrawler();
-        try {
+        /*try {
             //crawler.processPage("http://m.mp3.zing.vn");
             //crawler.processSongList("http://m.mp3.zing.vn/top-100/bai-hat-Nhac-Tre/IWZ9Z088.html");
             //crawler.processSong("http://m.mp3.zing.vn/bai-hat/Giu-Em-Di-Thuy-Chi/ZW6EZDII.html");
@@ -49,7 +50,7 @@ public class WebCrawler {
             Logger.getLogger(WebCrawler.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(WebCrawler.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
     }
 
     public void processPage(String URL) throws IOException {
@@ -93,6 +94,7 @@ public class WebCrawler {
         String title, titleSearch;
         String artist, artistSearch;
         String id;
+        long views;
         HashMap map;
 
         entity.Song songEntity;
@@ -105,6 +107,9 @@ public class WebCrawler {
             id = url.substring(url.lastIndexOf("/") + 1, url.lastIndexOf(".html"));
             System.out.println("Crawl: " + url);
 
+            if (element.html().length() == 0) {
+                continue;
+            }
             title = element.select("h3").get(0).text();
             titleSearch = AccentRemover.removeAccent(title);
             artist = element.select("h4").get(0).text();
@@ -118,6 +123,9 @@ public class WebCrawler {
                     songEntity = new Song(id, title, titleSearch, artist, artistSearch, 0, category);
                     map = processSong(getBaseUrl() + url); //throw exception
 
+                    views = Long.parseLong(map.get("Views").toString());
+                    songEntity.setPlayCount(views);
+                    
                     dao.save(songEntity);
                     songJaxb = new jaxb.song.Song();
 
@@ -151,34 +159,83 @@ public class WebCrawler {
         Elements lyricsElm = doc.select("#conLyrics");
         Elements audio = doc.select("#mp3Player");
 
+        String strViews;
+        long views;
+        strViews = doc.select(".icon-luot-nghe").get(0).text();
+        views = Long.parseLong(strViews) / 100000; // reduce views
+
         String albumArt = artistImg.attr("src").replace("94_94", "165_165");
         String source = audio.attr("xml");
         Document dataJson = Jsoup.connect(source).get();
         String data = dataJson.text();
-        String lyrics = lyricsElm.get(0).html();
+        String lyrics = "";
+        if (lyricsElm.text().length() > 0) {
+            lyrics = lyricsElm.get(0).html();
+        }
 
         map.put("AlbumArt", albumArt);
         map.put("Lyrics", lyrics);
         map.put("Source", data);
+        map.put("Views", views + "");
 
         return map;
     }
 
+    public void processArtistList() {
+        ArtistDAO artistDao;
+        SongDAO songDao = new SongDAO();
+        List<String> artists = songDao.listArtists();
+        //List<String> demo = artists.subList(10, 15);
+        for (String artist : artists) {
+            try {
+                artistDao = new ArtistDAO();
+                String artistNameSearch = AccentRemover.removeAccent(artist);
+                Artist found = artistDao.get(artistNameSearch);
+                if (found == null) {
+                    processArtist(artistNameSearch);
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(WebCrawler.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(WebCrawler.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+
     public void processArtist(String name) throws SQLException, IOException {
-        String url = getBaseUrl() + "/nghe-si/" + URLEncoder.encode(name, "UTF-8");
-        Document doc = Jsoup.connect(url).get();
+        String url = getBaseUrl() + "/nghe-si/" + AccentRemover.removeAccent(name);
+        System.out.println(url);
+        try {
+            Document doc = Jsoup.connect(url).get();
 
-        Elements imgElm = doc.select(".artist-img");
-        Elements infoElm = doc.select(".info-artist");
-        Elements bioElm = doc.select("#fnBiography");
+            Elements imgElm = doc.select(".artist-img");
+            Elements infoElm = doc.select(".info-artist");
+            Elements bioElm = doc.select("#fnBiography");
 
-        String image = imgElm.attr("src").replace("94_94", "165_165");
-        String info = infoElm.get(0).html();
-        String bio = bioElm.get(0).html();
 
-        System.out.println(image);
-        System.out.println(info);
-        System.out.println(bio);
+            String artistName = doc.select(".content-items h3").text();
+            String artistNameSearch = AccentRemover.removeAccent(artistName);
+            String image = imgElm.attr("src").replace("94_94", "165_165");
+            String info = "";
+            String bio = "";
+            if (!infoElm.isEmpty()) {
+                info = infoElm.get(0).html();
+            }
+            if (!bioElm.isEmpty()) {
+                bio = bioElm.get(0).html();
+            }
+            ArtistDAO artistDao = new ArtistDAO();
+            Artist found = artistDao.get(artistNameSearch);
+            if (found == null) {
+                entity.Artist artist = new Artist(artistNameSearch, artistName, image, bio, info);
+                artistDao.save(artist);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+
     }
 
     public void marshallXML(String filename, jaxb.song.Song song) {

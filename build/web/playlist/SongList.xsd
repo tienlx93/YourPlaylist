@@ -15,7 +15,7 @@ and open the template in the editor.
             <xs:sequence>
                 <xs:element name="Id" type="xs:string"/>
                 <xs:element name="Name" type="xs:string"/>
-                <xs:element name="Image" type="xs:string"/>
+                <xs:element name="AccountEmail" type="xs:string"/>
                 <xs:element name="List">
                     <xs:complexType>
                         <xs:sequence>
@@ -30,7 +30,7 @@ and open the template in the editor.
     <xs:complexType name="SongType">
         <xs:sequence>
             <xs:element name="Id" type="xs:string"/>
-            <xs:element name="Tilte" type="xs:string"/>
+            <xs:element name="Title" type="xs:string"/>
             <xs:element name="Artist" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>

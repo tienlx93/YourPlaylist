@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Song xmlns="http://yourplaylist.tk/Schema">
+    <Title>I Will Survive</Title>
+    <Artist>Lisa Wahlandt</Artist>
+    <AlbumArt>http://image.mp3.zdn.vn/thumb/165_165/avatars/d/0/d0096ec6c83575373e3a21d129ff8fef_1407920970.jpg</AlbumArt>
+    <Source>{&quot;data&quot;:[{&quot;type&quot;:&quot;audio&quot;,&quot;title&quot;:&quot;I Will Survive&quot;,&quot;performer&quot;:&quot;Lisa Wahlandt&quot;,&quot;source&quot;:&quot;http:\/\/m.mp3.zing.vn\/xml\/song-load\/MjAxNCUyRjA4JTJGMTMlMkZkJTJGMSUyRmQxZDdmMzdjYjk1ODVmN2NkZjAxNjEyN2Q5ZTMxOTJmLm1wMyU3QzI=&quot;,&quot;hq&quot;:&quot;require vip&quot;}]}</Source>
+    <Lyrics></Lyrics>
+</Song>
