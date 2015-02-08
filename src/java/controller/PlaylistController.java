@@ -110,7 +110,7 @@ public class PlaylistController extends HttpServlet {
             if (currentUser != null) {
                 String email = currentUser.getEmail();
                 final String lastId = dao.getLastIdByEmail(email);
-                HashMap<String,String> result = new HashMap<String, String>();
+                HashMap<String, String> result = new HashMap<String, String>();
                 result.put("lastId", lastId);
                 out.print(gson.toJson(result));
                 out.flush();
@@ -119,7 +119,15 @@ public class PlaylistController extends HttpServlet {
                 out.flush();
             }
         } else if (action.equals("getTopPlaylist")) { //TESTED
-            List<Playlist> topPlaylist = dao.getTopPlaylist(10);
+            String strLimit = request.getParameter("limit");
+            int limit = 10;
+            if (strLimit != null) {
+                try {
+                    limit = Integer.parseInt(strLimit);
+                } catch (Exception e) {
+                }
+            }
+            List<Playlist> topPlaylist = dao.getTopPlaylist(limit);
             out.print(gson.toJson(topPlaylist));
             out.flush();
         } else if (action.equals("getUserPlaylist")) { //TESTED

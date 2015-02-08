@@ -11,6 +11,7 @@ import java.util.List;
 import json.SongJson;
 import org.hibernate.Query;
 import org.hibernate.SQLQuery;
+import org.hibernate.Transaction;
 
 /**
  *
@@ -112,5 +113,23 @@ public class SongDAO extends BaseDAO<Song, String> {
             return null;
         }
         return list;
+    }
+
+    public boolean updatePlayCount(String id) {
+        Transaction trans = null;
+        try {
+            Song song = get(id);
+            
+            trans = session.beginTransaction();
+            song.setPlayCount(song.getPlayCount() + 1);
+            session.getTransaction().commit();
+
+            return true;
+        } catch (Exception e) {
+            if (trans.isActive()) {
+                trans.rollback();
+            }
+        }
+        return false;
     }
 }

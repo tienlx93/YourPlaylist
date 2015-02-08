@@ -16,6 +16,14 @@
         <servlet-name>Search</servlet-name>
         <servlet-class>controller.Search</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CounterController</servlet-name>
+        <servlet-class>controller.CounterController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ConvertPDF</servlet-name>
+        <servlet-class>controller.ConvertPDF</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AccountController</servlet-name>
         <url-pattern>/AccountController</url-pattern>
@@ -31,6 +39,14 @@
     <servlet-mapping>
         <servlet-name>Search</servlet-name>
         <url-pattern>/Search</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CounterController</servlet-name>
+        <url-pattern>/CounterController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConvertPDF</servlet-name>
+        <url-pattern>/ConvertPDF</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Song xmlns="http://yourplaylist.tk/Schema">
-    <Title>Away In A Manger</Title>
-    <Artist>Martina Mcbride</Artist>
-    <AlbumArt>http://image.mp3.zdn.vn/thumb/165_165/avatars/7/3/7304b0a41b7c23b2388c0754b9bd3a0b_1328684310.jpg</AlbumArt>
-    <Source>{&quot;data&quot;:[{&quot;type&quot;:&quot;audio&quot;,&quot;title&quot;:&quot;Away In A Manger&quot;,&quot;performer&quot;:&quot;Martina Mcbride&quot;,&quot;source&quot;:&quot;http:\/\/m.mp3.zing.vn\/xml\/song-load\/MjAxNCUyRjEyJTJGMjUlMkZkJTJGMSUyRmQxMGJkMzAxMjRkM2FkYTk2MjhjOWU3OTEzMjk2MTBkLm1wMyU3QzEz&quot;,&quot;hq&quot;:&quot;require vip&quot;}]}</Source>
-    <Lyrics></Lyrics>
-</Song>

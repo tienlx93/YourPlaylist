@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Song xmlns="http://yourplaylist.tk/Schema">
-    <Title>Woman In Love</Title>
-    <Artist>Barbra Streisand</Artist>
-    <AlbumArt>http://image.mp3.zdn.vn/thumb/165_165/avatars/f/b/fb88d449cbd229aadfcd5da26c6c8649_1393571928.jpg</AlbumArt>
-    <Source>{&quot;data&quot;:[{&quot;type&quot;:&quot;audio&quot;,&quot;title&quot;:&quot;Woman In Love&quot;,&quot;performer&quot;:&quot;Barbra Streisand&quot;,&quot;source&quot;:&quot;http:\/\/m.mp3.zing.vn\/xml\/song-load\/MjAxMiUyRjA1JTJGMDYlMkZiJTJGYiUyRmJiMWUyZDcxNTg1ZDlmM2YyOWUyMjM0M2E3NDNhMGRiLm1wMyU3QzI=&quot;,&quot;hq&quot;:&quot;require vip&quot;}]}</Source>
-    <Lyrics></Lyrics>
-</Song>

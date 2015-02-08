@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Song xmlns="http://yourplaylist.tk/Schema">
-    <Title>Nobody</Title>
-    <Artist>Emmylou Harris</Artist>
-    <AlbumArt>http://image.mp3.zdn.vn/thumb/165_165/avatars/2/6/26ce0b3b851b253affe3c661a4f5422f_1336061773.jpg</AlbumArt>
-    <Source>{&quot;data&quot;:[{&quot;type&quot;:&quot;audio&quot;,&quot;title&quot;:&quot;Nobody&quot;,&quot;performer&quot;:&quot;Emmylou Harris&quot;,&quot;source&quot;:&quot;http:\/\/m.mp3.zing.vn\/xml\/song-load\/MjAxMSUyRjA1JTJGMjAlMkY3JTJGMiUyRjcyYWUxMzRmMGY2YzA5ODNkMTVmZjY2YjMwNzBiZjZkLm1wMyU3QzI=&quot;,&quot;hq&quot;:&quot;require vip&quot;}]}</Source>
-    <Lyrics></Lyrics>
-</Song>

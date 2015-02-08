@@ -187,6 +187,9 @@ public class WebCrawler {
         List<String> artists = songDao.listArtists();
         //List<String> demo = artists.subList(10, 15);
         for (String artist : artists) {
+            if (artist.indexOf("ft.") > 0) {
+                artist = artist.substring(0, artist.indexOf("ft")).trim();
+            }
             try {
                 artistDao = new ArtistDAO();
                 String artistNameSearch = AccentRemover.removeAccent(artist);

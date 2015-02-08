@@ -7,6 +7,7 @@ package dao;
 import entity.Playlist;
 import java.util.List;
 import org.hibernate.Query;
+import org.hibernate.Transaction;
 
 /**
  *
@@ -100,5 +101,23 @@ public class PlaylistDAO extends BaseDAO<Playlist, String> {
         }
 
         return playlists;
+    }
+    
+    public boolean updatePlayCount(String id) {
+        Transaction trans = null;
+        try {
+            Playlist playlist = get(id);
+            
+            trans = session.beginTransaction();
+            playlist.setPlayCount(playlist.getPlayCount() + 1);
+            session.getTransaction().commit();
+
+            return true;
+        } catch (Exception e) {
+            if (trans.isActive()) {
+                trans.rollback();
+            }
+        }
+        return false;
     }
 }

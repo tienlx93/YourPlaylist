@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Song xmlns="http://yourplaylist.tk/Schema">
-    <Title>So Far Away</Title>
-    <Artist>Susan Wong</Artist>
-    <AlbumArt>http://image.mp3.zdn.vn/thumb/165_165/avatars/8/8/88174438b948067c60d7ef7a585017f5_1332584110.jpg</AlbumArt>
-    <Source>{&quot;data&quot;:[{&quot;type&quot;:&quot;audio&quot;,&quot;title&quot;:&quot;So Far Away&quot;,&quot;performer&quot;:&quot;Susan Wong&quot;,&quot;source&quot;:&quot;http:\/\/m.mp3.zing.vn\/xml\/song-load\/MjAxMiUyRjAzJTJGMjglMkY4JTJGNCUyRjg0NTVjY2YzOWVlMzk4YTYyNWVjMDNiNjI2ZGVhNGM4Lm1wMyU3QzI=&quot;,&quot;hq&quot;:&quot;require vip&quot;}]}</Source>
-    <Lyrics></Lyrics>
-</Song>

@@ -5,7 +5,9 @@
 package controller;
 
 import com.google.gson.Gson;
+import dao.ArtistDAO;
 import dao.SongDAO;
+import entity.Artist;
 import entity.Song;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -37,7 +39,7 @@ public class Search extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("application/json;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        
+
         Gson gson = new Gson();
         SongDAO songDao = new SongDAO();
 
@@ -45,25 +47,32 @@ public class Search extends HttpServlet {
         String query = request.getParameter("query");
         query = AccentRemover.removeAccent(query);
         List result;
-        if (method.equals("quick")) { //TESTED OK
-            result = songDao.search(query, 6);
-        } else if (method.equals("limit")){
-            String limit = request.getParameter("limit");
-            int number = Integer.parseInt(limit);
-            result = songDao.search(query, number);
-        } else {//TESTED OK
-            result = songDao.search(query, 0);
-        }
-        if (result != null) {
-
-            out.print(gson.toJson(result));
+        if (method.equals("artist")) {
+            ArtistDAO aDao = new ArtistDAO();
+            Artist artist = aDao.getByName(query);
+            out.print(gson.toJson(artist));
             out.flush();
-
         } else {
-            out.print("[]");
-            out.flush();
-            //response.sendRedirect("/AccountController/login.jsp" + "?msg=error");
+            if (method.equals("quick")) { //TESTED OK
+                result = songDao.search(query, 6);
+            } else if (method.equals("limit")) {
+                String limit = request.getParameter("limit");
+                int number = Integer.parseInt(limit);
+                result = songDao.search(query, number);
+            } else {//TESTED OK
+                result = songDao.search(query, 0);
+            }
+            if (result != null) {
+
+                out.print(gson.toJson(result));
+                out.flush();
+
+            } else {
+                out.print("[]");
+                out.flush();
+            }
         }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

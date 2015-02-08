@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Song xmlns="http://yourplaylist.tk/Schema">
-    <Title>Wild Mix</Title>
-    <Artist>DJ Blend</Artist>
-    <AlbumArt>http://image.mp3.zdn.vn/thumb/165_165/avatars/d/3/d3819f14ca42aff8faa418b8233cae94_1371458455.jpg</AlbumArt>
-    <Source>{&quot;data&quot;:[{&quot;type&quot;:&quot;audio&quot;,&quot;title&quot;:&quot;Wild Mix&quot;,&quot;performer&quot;:&quot;DJ Blend&quot;,&quot;source&quot;:&quot;http:\/\/m.mp3.zing.vn\/xml\/song-load\/MjAxMyUyRjEyJTJGMDklMkZjJTJGMyUyRmMzZTgzNzk3OGEwYjZlYjc0ODllNjdjZjI3MjM5Nzc0Lm1wMyU3QzI=&quot;,&quot;hq&quot;:&quot;require vip&quot;}]}</Source>
-    <Lyrics></Lyrics>
-</Song>

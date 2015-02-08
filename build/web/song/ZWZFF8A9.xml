@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Song xmlns="http://yourplaylist.tk/Schema">
-    <Title>You Are My Love</Title>
-    <Artist>Julienne Taylor</Artist>
-    <AlbumArt>http://image.mp3.zdn.vn/thumb/165_165/avatars/4/7/47d39b8042025dda177f05ed353024a1_1334666324.jpg</AlbumArt>
-    <Source>{&quot;data&quot;:[{&quot;type&quot;:&quot;audio&quot;,&quot;title&quot;:&quot;You Are My Love&quot;,&quot;performer&quot;:&quot;Julienne Taylor&quot;,&quot;source&quot;:&quot;http:\/\/m.mp3.zing.vn\/xml\/song-load\/MjAxMiUyRjA0JTJGMTclMkYxJTJGMCUyRjEwODg0YTU1MDc3MTk1N2E3ZjliMjUxN2I5OTVlYTM3Lm1wMyU3QzI=&quot;,&quot;hq&quot;:&quot;require vip&quot;}]}</Source>
-    <Lyrics></Lyrics>
-</Song>
