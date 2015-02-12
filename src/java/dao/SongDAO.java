@@ -27,7 +27,7 @@ public class SongDAO extends BaseDAO<Song, String> {
         ArrayList<String> list;
         try {
             session.getTransaction().begin();
-            String sql = "SELECT ArtistSearch FROM Song GROUP BY ArtistSearch";
+            String sql = "SELECT ArtistSearch FROM song GROUP BY ArtistSearch";
             Query query = session.createSQLQuery(sql);
             List rows = query.list();
             list = (ArrayList<String>) rows;
@@ -51,13 +51,13 @@ public class SongDAO extends BaseDAO<Song, String> {
             session.getTransaction().begin();
             String sql;
             if (limit == 0 || limit >= 100) {
-                sql = "SELECT Id, Title, Artist, PlayCount, Category, Name, [Image] "
-                        + "FROM Song LEFT JOIN Artist ON ArtistSearch = NameSearch "
+                sql = "SELECT Id, Title, Artist, PlayCount, Category, Name, Image "
+                        + "FROM song LEFT JOIN artist ON ArtistSearch = NameSearch "
                         + "WHERE TitleSearch LIKE ? OR ArtistSearch LIKE ? "
-                        + "";
+                        + "ORDER BY RAND()";
             } else {
-                sql = "SELECT Id, Title, Artist, PlayCount, Category, Name, [Image] "
-                        + "FROM Song LEFT JOIN Artist ON ArtistSearch = NameSearch "
+                sql = "SELECT Id, Title, Artist, PlayCount, Category, Name, Image "
+                        + "FROM song LEFT JOIN artist ON ArtistSearch = NameSearch "
                         + "WHERE TitleSearch LIKE ? OR ArtistSearch LIKE ? "
                         + "ORDER BY PlayCount DESC";
             }
@@ -98,7 +98,7 @@ public class SongDAO extends BaseDAO<Song, String> {
         ArrayList<String> list;
         try {
             session.getTransaction().begin();
-            String sql = "SELECT Category FROM Song GROUP BY Category";
+            String sql = "SELECT Category FROM song GROUP BY Category";
             Query query = session.createSQLQuery(sql);
             List rows = query.list();
             list = (ArrayList<String>) rows;
