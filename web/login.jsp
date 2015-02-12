@@ -16,8 +16,8 @@
         <div style="width: 350px; margin: auto">
             <form class="form-signin" role="form" action="AccountController" method="POST">
                 <h2 class="form-signin-heading">Login</h2>
-                <input type="text" class="form-control" name="txtEmail" placeholder="Email" required autofocus>
-                <input type="password" class="form-control" name="txtPassword" placeholder="Password" required>
+                <input type="text" class="form-control" name="email" placeholder="Email" required autofocus>
+                <input type="password" class="form-control" name="password" placeholder="Password" required>
                 <br/>
                 <c:if test="${not empty param.msg}" >
                     <div style="color: red">Wrong username or password!</div>
