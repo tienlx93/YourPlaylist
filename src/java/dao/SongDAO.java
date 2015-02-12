@@ -54,7 +54,7 @@ public class SongDAO extends BaseDAO<Song, String> {
                 sql = "SELECT Id, Title, Artist, PlayCount, Category, Name, [Image] "
                         + "FROM Song LEFT JOIN Artist ON ArtistSearch = NameSearch "
                         + "WHERE TitleSearch LIKE ? OR ArtistSearch LIKE ? "
-                        + "ORDER BY NEWID()";
+                        + "";
             } else {
                 sql = "SELECT Id, Title, Artist, PlayCount, Category, Name, [Image] "
                         + "FROM Song LEFT JOIN Artist ON ArtistSearch = NameSearch "

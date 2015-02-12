@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Song xmlns="http://yourplaylist.tk/Schema">
+    <Title>Bangarang</Title>
+    <Artist>Skrillex</Artist>
+    <AlbumArt>http://image.mp3.zdn.vn/thumb/165_165/avatars/4/0/40f6cd8542ec9b2c1409a552dfa461a9_1327389130.jpg</AlbumArt>
+    <Source>{&quot;data&quot;:[{&quot;type&quot;:&quot;audio&quot;,&quot;title&quot;:&quot;Bangarang&quot;,&quot;performer&quot;:&quot;Skrillex&quot;,&quot;source&quot;:&quot;http:\/\/m.mp3.zing.vn\/xml\/song-load\/MjAxMiUyRjAzJTJGMTglMkY5JTJGOCUyRjk4ZWFlZTNmMDgwODRlNDIzOTY2MGYyMjRkOTZmYWJjLm1wMyU3QzI=&quot;,&quot;hq&quot;:&quot;require vip&quot;}]}</Source>
+    <Lyrics></Lyrics>
+</Song>

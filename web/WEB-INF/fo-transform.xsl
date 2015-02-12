@@ -29,7 +29,7 @@
             <fo:page-sequence master-reference="x">
                 <fo:static-content flow-name="xsl-region-before">
                     <fo:block font-size="14pt" font-family="Verdana"
-                        line-height="24pt" background-color="cyan"
+                        line-height="24pt" 
                         space-after.optimum="15pt" text-align="center"
                         padding-top="3pt">
                         Báo cáo lượt nghe BXH 40 ngày <xsl:value-of select="t:DateCreated" />

@@ -24,6 +24,10 @@
         <servlet-name>ConvertPDF</servlet-name>
         <servlet-class>controller.ConvertPDF</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ArtistCrawler</servlet-name>
+        <servlet-class>controller.ArtistCrawler</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AccountController</servlet-name>
         <url-pattern>/AccountController</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>ConvertPDF</servlet-name>
         <url-pattern>/ConvertPDF</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ArtistCrawler</servlet-name>
+        <url-pattern>/ArtistCrawler</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

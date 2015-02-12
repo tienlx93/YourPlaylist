@@ -2,17 +2,15 @@
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
-    <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
-    <property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;databaseName=YourPlaylist</property>
-    <property name="hibernate.connection.username">sa</property>
-    <property name="hibernate.connection.password">123</property>
-    <property name="hibernate.dialect">util.SQLServerNativeDialect</property>
-    <property name="hibernate.show_sql">false</property>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/yourplaylist?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">123456</property>
     <property name="hibernate.current_session_context_class">thread</property>
-    <property name="hibernate.query.factory_class">org.hibernate.hql.ast.ASTQueryTranslatorFactory</property>
     <mapping resource="entity/Song.hbm.xml"/>
+    <mapping resource="entity/Playlist.hbm.xml"/>
     <mapping resource="entity/Artist.hbm.xml"/>
     <mapping resource="entity/Account.hbm.xml"/>
-    <mapping resource="entity/Playlist.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

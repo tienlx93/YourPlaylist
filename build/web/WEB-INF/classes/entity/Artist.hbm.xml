@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 06/02/2015 11:56:45 PM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 12/02/2015 11:33:26 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
-    <class name="entity.Artist" table="Artist" schema="dbo" catalog="YourPlaylist">
+    <class name="entity.Artist" table="artist" catalog="yourplaylist">
         <id name="nameSearch" type="string">
             <column name="NameSearch" length="50" />
             <generator class="assigned" />
@@ -15,10 +15,10 @@
             <column name="Image" length="250" not-null="true" />
         </property>
         <property name="bio" type="string">
-            <column name="Bio" length="1073741823" />
+            <column name="Bio" />
         </property>
         <property name="info" type="string">
-            <column name="Info" length="1073741823" />
+            <column name="Info" />
         </property>
     </class>
 </hibernate-mapping>
