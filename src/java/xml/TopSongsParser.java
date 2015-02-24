@@ -11,7 +11,10 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import jaxb.playlist.SongType;
 import jaxb.playlist.TopSongs;
@@ -57,14 +60,16 @@ public class TopSongsParser {
     }
 
     public void marshallXML(String filename) {
-        try {
+        try {        
             JAXBContext context = JAXBContext.newInstance(TopSongs.class);
             Marshaller marshaller = context.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             marshaller.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
             marshaller.marshal(result, new File(filename));
-        } catch (Exception e) {
+        } catch (JAXBException ex) {
+            Logger.getLogger(TopSongsParser.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }
 
     /**
