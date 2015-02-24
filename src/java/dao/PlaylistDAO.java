@@ -23,7 +23,7 @@ public class PlaylistDAO extends BaseDAO<Playlist, String> {
         String id;
         try {
             session.getTransaction().begin();
-            String sql = "select MAX(CAST(Id AS int)) FROM playlist";
+            String sql = "select MAX(CAST(Id AS DECIMAL)) FROM playlist";
             Query query = session.createSQLQuery(sql);
             List rows = query.list();
             if (rows.size() > 0 && rows.get(0) != null) {
@@ -49,7 +49,7 @@ public class PlaylistDAO extends BaseDAO<Playlist, String> {
         String lastId = null;
         try {
             session.getTransaction().begin();
-            String sql = "select MAX(CAST(Id AS int)) FROM playlist WHERE AccountEmail LIKE ?";
+            String sql = "select MAX(CAST(Id AS DECIMAL)) FROM playlist WHERE AccountEmail LIKE ?";
             Query query = session.createSQLQuery(sql);
             query.setParameter(0, email);
             Object result = query.uniqueResult();
